@@ -1,11 +1,10 @@
-import Joi from 'joi'
+import Joi from './Joi'
 
-export const del = Joi.object({}).unknown(true)
 export const get = Joi.object({}).unknown(true)
 
 export const patch = Joi.object({
   params: Joi.object({
-    id: Joi.string().uuid().required(),
+    id: Joi.objectId().required(),
   }).unknown(true),
   body: Joi.object({
     name: Joi.string(),
@@ -20,4 +19,10 @@ export const post = Joi.object({
     description: Joi.string().required(),
     status: Joi.boolean().required(),
   }).required(),
+}).unknown(true)
+
+export const del = Joi.object({
+  params: Joi.object({
+    id: Joi.objectId().required(),
+  }).unknown(true),
 }).unknown(true)

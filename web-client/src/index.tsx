@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { Tasks } from './pages/tasks/Tasks'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Tasks />
   </React.StrictMode>,
   document.getElementById('root')
 )
