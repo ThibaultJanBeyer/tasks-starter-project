@@ -7,7 +7,7 @@ const createValidator = (schema: Joi.Schema) => async (values: any) => {
   try {
     return await schema.validateAsync(values)
   } catch (err) {
-    throw new ValidationError("Error trying to validate request", err, values)
+    throw new ValidationError('Error trying to validate request', err, values)
   }
 }
 

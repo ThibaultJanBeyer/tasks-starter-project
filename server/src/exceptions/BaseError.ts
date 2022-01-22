@@ -18,7 +18,7 @@ export class BaseError extends Error {
     this.extras = extras
     this.message = message
     this.name = name
-    this.stack += error.stack ? '\n <- ' + error.stack : ''
+    this.stack += error.stack ? `\n <- ${error.stack}` : ''
   }
 
   toJSON(notRedacted = false) {
@@ -26,12 +26,14 @@ export class BaseError extends Error {
       code: this.code,
       message: this.message,
       base_message: this.__error.message,
-      ...(notRedacted ? {
-        __error: this.__error,
-        extras: this.extras,
-        name: this.name,
-        stack: this.stack,
-      } : {})
+      ...(notRedacted
+        ? {
+            __error: this.__error,
+            extras: this.extras,
+            name: this.name,
+            stack: this.stack,
+          }
+        : {}),
     }
   }
 }

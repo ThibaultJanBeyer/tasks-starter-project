@@ -1,5 +1,6 @@
-import { ITask } from "./../types/tasks"
-import { model, Schema } from "mongoose"
+import { model, Schema } from 'mongoose'
+
+import { ITask } from '../types/tasks'
 
 const taskSchema: Schema = new Schema(
   {
@@ -7,12 +8,10 @@ const taskSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-
     description: {
       type: String,
       required: true,
     },
-
     status: {
       type: Boolean,
       required: true,
@@ -21,4 +20,4 @@ const taskSchema: Schema = new Schema(
   { timestamps: true }
 )
 
-export default model<ITask>("Task", taskSchema)
+export default model<ITask>('Task', taskSchema)

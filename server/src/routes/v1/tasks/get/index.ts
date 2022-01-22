@@ -1,8 +1,8 @@
-import { Response, Request } from "express"
+import { Response, Request } from 'express'
 
-import * as tasksController from "../../../../controllers/tasks"
-import { handleError } from "../../../../exceptions/handleError"
-import { taskRequestValidations } from "../../../../validations"
+import * as tasksController from '../../../../controllers/tasks'
+import { handleError } from '../../../../exceptions/handleError'
+import { taskRequestValidations } from '../../../../validations'
 
 export const get = async (req: Request, res: Response): Promise<void> => {
   try {
