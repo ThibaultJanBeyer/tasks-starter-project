@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import * as taskApi from '../../modules/Api'
+import * as taskApi from '../../modules/taskApi'
 import { AddTask } from './AddTask'
 import { ITask } from '../../types/tasks'
 import { TaskItem } from './TaskItem'

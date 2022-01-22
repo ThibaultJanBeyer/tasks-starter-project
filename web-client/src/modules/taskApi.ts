@@ -1,10 +1,11 @@
 import { ITask, TApiData } from '../types/tasks'
+import { baseApiUrl } from '../constants'
 
-const baseUrl = 'http://localhost:8080/api/v1'
+const path = 'tasks'
 
 export const get = async (): Promise<TApiData> => {
   try {
-    const response = await fetch(`${baseUrl}/tasks`)
+    const response = await fetch(`${baseApiUrl}/${path}`)
     return await response.json()
   } catch (err: any) {
     throw new Error(err)
@@ -18,7 +19,7 @@ export const add = async (task: ITask): Promise<TApiData> => {
       description: task.description,
       status: false,
     }
-    const response = await fetch(`${baseUrl}/tasks`, {
+    const response = await fetch(`${baseApiUrl}/${path}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json;charset=UTF-8',
@@ -35,7 +36,7 @@ export const toggle = async (id: string): Promise<TApiData> => {
   try {
     const task = await (await get()).tasks.find((item) => item._id === id)
     if (!task) throw new Error(`Task does not exist (id: ${id})`)
-    const response = await fetch(`${baseUrl}/tasks/${id}`, {
+    const response = await fetch(`${baseApiUrl}/${path}/${id}`, {
       method: 'PATCH',
       headers: { 'content-type': 'application/json;charset=UTF-8' },
       body: JSON.stringify({ status: !task.status }),
@@ -48,7 +49,7 @@ export const toggle = async (id: string): Promise<TApiData> => {
 
 export const del = async (id: string): Promise<TApiData> => {
   try {
-    const response = await fetch(`${baseUrl}/tasks/${id}`, {
+    const response = await fetch(`${baseApiUrl}/${path}/${id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json;charset=UTF-8' },
     })
