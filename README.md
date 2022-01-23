@@ -4,7 +4,7 @@ A simple boilerplate project (tasks app) that follows best practices:
 - Project structure
 - (tbd) Containerizing
 - Error Handling
-- Testing (unit & integration)
+- Testing (unit & integration) (e2e tbd)
 - Code linting/prettier 
 - Input Validations
 - API designs
