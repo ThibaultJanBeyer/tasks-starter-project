@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="4" failures="0" errors="0" time="7.585">
+  <testsuite name="When using the tasks controller" errors="0" failures="0" skipped="0" timestamp="2022-01-23T13:49:34" time="7.531" tests="4">
+    <testcase classname="When using the tasks controller CRUD should save" name="When using the tasks controller CRUD should save" time="0.554">
+    </testcase>
+    <testcase classname="When using the tasks controller CRUD should read" name="When using the tasks controller CRUD should read" time="0.008">
+    </testcase>
+    <testcase classname="When using the tasks controller CRUD should update" name="When using the tasks controller CRUD should update" time="0.048">
+    </testcase>
+    <testcase classname="When using the tasks controller CRUD should delete" name="When using the tasks controller CRUD should delete" time="0.064">
+    </testcase>
+  </testsuite>
+</testsuites>

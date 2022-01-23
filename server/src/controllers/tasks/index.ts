@@ -28,7 +28,7 @@ export const save = async (
 
 export const update = async (
   id: string,
-  body: Pick<ITask, 'name' | 'description' | 'status'>
+  body: Partial<Pick<ITask, 'name' | 'description' | 'status'>>
 ): Promise<ITask | null> => {
   try {
     return await Task.findByIdAndUpdate(

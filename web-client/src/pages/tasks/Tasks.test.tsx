@@ -2,8 +2,9 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Tasks } from './Tasks'
 
-test('renders learn react link', () => {
-  render(<Tasks />)
-  const linkElement = screen.getByText(/learn react/i)
-  expect(linkElement).toBeInTheDocument()
+test('renders Tasks', () => {
+  const { container } = render(<Tasks />)
+  const element = screen.getByText(/My Tasks/i)
+  expect(element).toBeInTheDocument()
+  expect(container).toMatchSnapshot()
 })

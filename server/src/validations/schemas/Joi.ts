@@ -1,4 +1,5 @@
 import Joi from 'joi'
+
 const objIdPattern = /^[0-9a-fA-F]{24}$/
 
 const isValid = function (value: any) {
@@ -13,8 +14,7 @@ export default Joi.extend({
     invalid: 'It must have a valid ObjectId.',
   },
   validate(value, { error }) {
-    if (!isValid(value)) {
-      return { value, errors: error('invalid') }
-    }
+    if (!isValid(value)) return { value, errors: error('invalid') }
+    return true
   },
 })
