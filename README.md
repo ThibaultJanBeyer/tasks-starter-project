@@ -9,7 +9,7 @@ A simple boilerplate project (tasks app) that follows best practices:
 - Input Validations
 - API designs
 
-## Main
+## Main Branch
 On main branch we currently have a `web-client` and a `server`.
 ### Server
 #### Technology
