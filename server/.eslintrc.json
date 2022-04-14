@@ -32,6 +32,7 @@
   },
   "plugins": ["prettier", "@typescript-eslint"],
   "rules": {
+    "default-param-last": "off",
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
     "no-console": "off",
