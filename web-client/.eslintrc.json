@@ -30,9 +30,15 @@
   },
   "plugins": ["prettier", "@typescript-eslint"],
   "rules": {
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": [
+      "error",
+      { "ignoreTypeValueShadow": true }
+    ],
     "default-param-last": "off",
     "prettier/prettier": "error",
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
     "no-console": "off",
     "func-names": "off",
     "no-plusplus": "off",
