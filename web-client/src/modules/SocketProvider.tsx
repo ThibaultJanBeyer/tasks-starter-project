@@ -15,13 +15,6 @@ export const SocketProvider: React.FC<React.PropsWithChildren<any>> = ({
 
   useEffect(() => {
     const IO = io(baseSocketUrl)
-
-    IO.emit('LOL', 'lol')
-
-    IO.on('ROFL', (msg) => {
-      console.log('ROFL', msg)
-    })
-
     setSocketIO(IO)
 
     // CLEAN UP THE EFFECT
