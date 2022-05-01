@@ -1,6 +1,6 @@
 import config from 'config'
 
-import server from './server'
+import { server } from './server'
 import { setupDb } from './db'
 
 export const app = async () => {

@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 
 import './index.css'
 import reportWebVitals from './reportWebVitals'
+import { Chat } from './pages/chat/Chat'
+import { SocketProvider } from './modules/SocketProvider'
 import { Tasks } from './pages/tasks/Tasks'
 
 const container = document.getElementById('root')
@@ -11,7 +13,11 @@ const root = createRoot(container!)
 
 root.render(
   <React.StrictMode>
-    <Tasks />
+    <SocketProvider>
+      <Tasks />
+      <hr />
+      <Chat />
+    </SocketProvider>
   </React.StrictMode>
 )
 

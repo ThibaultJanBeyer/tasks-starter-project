@@ -5,7 +5,7 @@ jest.mock('../../../../controllers/tasks', () => ({
 }))
 
 import request from 'supertest'
-import server from '../../../../server'
+import { server } from '../../../../server'
 
 const path = '/api/v1/tasks'
 
