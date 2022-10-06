@@ -1,0 +1,9 @@
+.container {
+  background: lightblue;
+}
+
+@media (max-width: 600px) {
+  .container {
+    background: lightcoral;
+  }
+}

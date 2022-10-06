@@ -19,5 +19,6 @@ On main branch we currently have a `web-client` and a `server`.
 - REST API
 ### Web Client
 #### Technology
-- React (via create-react-app)
+- React+Next (via create-next-app)
+- Testing with Jest
 - Typescript

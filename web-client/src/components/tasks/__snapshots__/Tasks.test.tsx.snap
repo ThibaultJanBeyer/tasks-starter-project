@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Tasks 1`] = `
+<div>
+  <main
+    class="App"
+  >
+    <h1
+      style="text-align: center;"
+    >
+      My Tasks
+    </h1>
+    <form
+      style="border: 1px solid lightgrey; padding: 30px; margin: 10px;"
+    >
+      <div
+        style="display: grid; margin-bottom: 20px;"
+      >
+        <div
+          style="display: grid; grid-template-columns: 100px 1fr; align-items: center;"
+        >
+          <label
+            for="name"
+          >
+            Name
+          </label>
+          <input
+            id="name"
+            type="text"
+          />
+        </div>
+        <div
+          style="display: grid; grid-template-columns: 100px 1fr; align-items: center;"
+        >
+          <label
+            for="description"
+          >
+            Description
+          </label>
+          <textarea
+            id="description"
+          />
+        </div>
+      </div>
+      <div
+        style="text-align: right;"
+      >
+        <button
+          disabled=""
+        >
+          Add Task
+        </button>
+      </div>
+    </form>
+  </main>
+</div>
+`;

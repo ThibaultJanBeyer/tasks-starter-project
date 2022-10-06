@@ -1,4 +1,5 @@
 {
+  "root": true,
   "settings": {
     "import/resolver": {
       "node": {
@@ -11,7 +12,18 @@
     "es6": true,
     "node": true
   },
+  "overrides": [
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ],
   "extends": [
+    "next/core-web-vitals",
     "airbnb-base",
     "prettier",
     "eslint:recommended",
@@ -28,7 +40,7 @@
     "sourceType": "module",
     "allowImportExportEverywhere": true
   },
-  "plugins": ["prettier", "@typescript-eslint"],
+  "plugins": ["prettier", "@typescript-eslint", "testing-library"],
   "rules": {
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": [
