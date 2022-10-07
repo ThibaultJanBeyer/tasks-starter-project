@@ -1,17 +1,11 @@
 {
   "root": true,
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
-    }
-  },
-  "env": {
-    "commonjs": true,
-    "es6": true,
-    "node": true
-  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@next/next/recommended",
+    "prettier"
+  ],
+  "plugins": ["testing-library", "@typescript-eslint", "prettier"],
   "overrides": [
     // Only uses Testing Library lint rules in test files
     {
@@ -22,26 +16,14 @@
       "extends": ["plugin:testing-library/react"]
     }
   ],
-  "extends": [
-    "next/core-web-vitals",
-    "airbnb-base",
-    "prettier",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 11,
-    "sourceType": "module",
-    "allowImportExportEverywhere": true
-  },
-  "plugins": ["prettier", "@typescript-eslint", "testing-library"],
   "rules": {
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": [
       "error",

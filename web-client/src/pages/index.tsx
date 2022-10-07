@@ -8,10 +8,16 @@ import { Tasks } from '../components/tasks/Tasks'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-      <Tasks />
-    </div>
+    <>
+      <Head>
+        <title>My page title</title>
+      </Head>
+      <div className={styles.container}>
+        <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+        <Tasks />
+        <div />
+      </div>
+    </>
   )
 }
 
