@@ -4,7 +4,11 @@ export const get = Joi.object({}).unknown(true)
 
 export const patch = Joi.object({
   params: Joi.object({
-    id: Joi.objectId().required(),
+    id: Joi.string()
+      .guid({
+        version: ['uuidv4'],
+      })
+      .required(),
   }).unknown(true),
   body: Joi.object({
     name: Joi.string(),
@@ -23,6 +27,10 @@ export const post = Joi.object({
 
 export const del = Joi.object({
   params: Joi.object({
-    id: Joi.objectId().required(),
+    id: Joi.string()
+      .guid({
+        version: ['uuidv4'],
+      })
+      .required(),
   }).unknown(true),
 }).unknown(true)

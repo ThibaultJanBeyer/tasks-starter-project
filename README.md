@@ -14,7 +14,8 @@ On main branch we currently have a `web-client` and a `server`.
 ### Server
 #### Technology
 - Node
-- MongoDB + Mongoose
+- Postgres + Sequelize
+- Testing with Jest
 - Typescript
 - REST API
 ### Web Client

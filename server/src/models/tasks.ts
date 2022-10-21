@@ -1,23 +1,47 @@
-import { model, Schema } from 'mongoose'
+import {
+  Sequelize,
+  DataTypes,
+  Model,
+  InferAttributes,
+  InferCreationAttributes,
+  CreationOptional,
+} from 'sequelize'
 
-import { ITask } from '../types/tasks'
+interface TaskModel
+  extends Model<
+    InferAttributes<TaskModel>,
+    InferCreationAttributes<TaskModel>
+  > {
+  _id: CreationOptional<string>
+  name: string
+  description: string
+  status: boolean
+}
 
-const taskSchema: Schema = new Schema(
-  {
-    name: {
-      type: String,
-      required: true,
+export default ({ sequelize }: { sequelize: Sequelize }) =>
+  sequelize.define<TaskModel>(
+    'Task',
+    {
+      _id: {
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      name: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      description: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      status: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+      },
     },
-    description: {
-      type: String,
-      required: true,
-    },
-    status: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  { timestamps: true }
-)
-
-export default model<ITask>('Task', taskSchema)
+    {
+      paranoid: true,
+    }
+  )

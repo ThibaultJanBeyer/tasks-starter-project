@@ -1,10 +1,10 @@
-import Task from '../../models/tasks'
+import { TaskModel } from '../../db'
 import { DatabaseError } from '../../exceptions/TypedErrors'
 import { ITask } from '../../types/tasks'
 
 export const find = async (): Promise<ITask[]> => {
   try {
-    return await Task.find()
+    return await TaskModel.findAll()
   } catch (error) {
     throw new DatabaseError('Error trying to find tasks', error)
   }
@@ -14,7 +14,7 @@ export const save = async (
   body: Pick<ITask, 'name' | 'description' | 'status'>
 ): Promise<ITask> => {
   try {
-    const task: ITask = new Task({
+    const task = TaskModel.build({
       name: body.name,
       description: body.description,
       status: body.status,
@@ -29,13 +29,12 @@ export const save = async (
 export const update = async (
   id: string,
   body: Partial<Pick<ITask, 'name' | 'description' | 'status'>>
-): Promise<ITask | null> => {
+): Promise<ITask> => {
   try {
-    return await Task.findByIdAndUpdate(
-      { _id: id },
-      body,
-      { new: true } // Since v4, it returns the old object by default instead of the updated one
-    )
+    const Task = await TaskModel.findByPk(id)
+    if (!Task) throw new Error(`Task not found`)
+    console.log(Task)
+    return await Task.update(body)
   } catch (error) {
     throw new DatabaseError('Error trying to update task', error, { id, body })
   }
@@ -43,7 +42,9 @@ export const update = async (
 
 export const remove = async (id: string): Promise<ITask | null> => {
   try {
-    return await Task.findByIdAndRemove(id)
+    const Task = await TaskModel.findByPk(id)
+    await Task?.destroy()
+    return Task
   } catch (error) {
     throw new DatabaseError('Error trying to delete task', error, { id })
   }

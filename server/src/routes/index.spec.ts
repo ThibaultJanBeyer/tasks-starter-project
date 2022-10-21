@@ -1,6 +1,6 @@
 import request from 'supertest'
 
-import server from '../server'
+import { server } from '../server'
 
 describe('API - /ping', () => {
   it('responds with 200', async () => {
