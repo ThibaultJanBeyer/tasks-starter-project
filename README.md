@@ -22,3 +22,13 @@ On main branch we currently have a `web-client` and a `server`.
 - React+Next (via create-next-app)
 - Testing with Jest
 - Typescript
+
+## Other Branches:
+
+### db/postgres
+
+Using postgres as database and sequelize as orm
+
+### feature/sockets
+
+Includes a chat-app build on socket connection
