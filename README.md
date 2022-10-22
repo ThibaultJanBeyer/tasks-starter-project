@@ -29,11 +29,13 @@ To build all and run all containers you can run `yarn start:init` on the root of
 
 
 ## Main Branch
-On main branch we currently have a `web-client` and a `server`.
+On main branch we currently have a `web-client`, a `server` and a `db` for database.
+### Database
+- MongoDB
 ### Server
 #### Technology
 - Node
-- MongoDB + Mongoose
+- Mongoose (for MongoDB)
 - Typescript
 - REST API
 ### Web Client
