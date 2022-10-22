@@ -1,29 +1,9 @@
-# Next.js + Jest
+# Web-Client
 
-This example shows how to configure Jest to work with Next.js.
+See the projects parent README for more information.
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.
+This runs a simple web-client using next.js that can be used in conjunction with the API server.
 
-## How to Use
-
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
-
-```bash
-npx create-next-app --example with-jest with-jest-app
-```
-
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
-
-```bash
-pnpm create next-app --example with-jest with-jest-app
-```
-
-## Run Jest Tests
-
-```bash
-npm test
-```
+## Notes on production
+- Store the credentials securely
+- Use Kubernetes for deployment and networking instead of `--net=host` on the docker run command in the package.json (see: [Kubernetes Cheatsheets](https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/kubernetes-cheatsheet.md))

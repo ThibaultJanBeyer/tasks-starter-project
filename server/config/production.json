@@ -1,0 +1,8 @@
+{
+  "dbConfig": {
+    "host": "db",
+    "user": "dev",
+    "password": "dev",
+    "db": "dev"
+  }
+}

@@ -2,12 +2,31 @@
 A simple boilerplate project (tasks app) that follows best practices:
 
 - Project structure
-- (tbd) Containerizing
+- Containerization
 - Error Handling
 - Testing (unit & integration) (e2e tbd)
 - Code linting/prettier 
 - Input Validations
 - API designs
+
+The parts can also be used in isolation!  
+The server however is dependant on the db, if you want only one folder, you can very well also move the db folder into the server folder  
+
+## Prerequisites
+- `docker` & `docker-compose` (see [cheatsheet > install](https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/docker-cheatsheet.md#install))
+- `node` & `git` & `yarn`
+
+## Running
+
+- `yarn start:init` will build all containers and run them all with docker-compose (I recommend using Kubernetes in production)
+- `yarn start` will run docker-compose to start all containers (if they are build already)
+- `yarn start:dev` will run all individual parts in dev mode locally and watch them for reloads on file change
+
+## Docker
+All parts are containerized using docker, see `yarn docker:*` for the different commands. If you just want to quickly build and run, `yarn docker:dev` is your friend. It will build the image, create a common network and run the container sync. You can run it in detached mode using `docker:detach`.
+
+To build all and run all containers you can run `yarn start` on the root of this repository.
+
 
 ## Main Branch
 On main branch we currently have a `web-client` and a `server`.

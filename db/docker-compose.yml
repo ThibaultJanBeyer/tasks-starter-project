@@ -4,14 +4,12 @@ services:
   mongo:
     image: mongo
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: dev
-      MONGO_INITDB_ROOT_PASSWORD: dev
-      MONGO_INITDB_DATABASE: dev
+    env_file:
+      ./bin/db.env
     ports:
       - 27017:27017
     volumes:
-      - ./bin/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./bin/db.init.js:/docker-entrypoint-initdb.d/mongo-init.js
 
   mongo-express:
     image: mongo-express

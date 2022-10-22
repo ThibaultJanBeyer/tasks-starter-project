@@ -1,0 +1,26 @@
+{
+  "name": "db",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "None",
+  "scripts": {
+    "\\** DEV **\\": "\\** DEV **\\",
+    "start": "./bin/setup-detach.sh",
+    "start:dev": "./bin/setup-dev.sh",
+    "teardown": "yarn teardown:dev",
+    "teardown:dev": "./bin/teardown-dev.sh",
+    "\\** Docker Related Scripts **\\": "\\** Docker Related Scripts **\\",
+    "docker:build": "yarn docker:teardown; ./build.sh",
+    "docker:teardown": "docker network rm tsp/network; yarn docker:stop; yarn docker:remove; yarn docker:rmi;",
+    "docker:network": "docker network create tsp/network",
+    "docker:run": "yarn docker:network; docker run -p 27017:27017 -v $(pwd)/bin/init.js:/docker-entrypoint-initdb.d/mongo-init.js --network=tsp/network --name db --env-file=./bin/.env tsp/db",
+    "docker:run:detached": "yarn docker:network; docker run -d -p 27017:27017 -v $(pwd)/bin/init.js:/docker-entrypoint-initdb.d/mongo-init.js --network=tsp/network --name --env-file=./bin/.env db tsp/db",
+    "docker:stop": "docker stop $(docker ps -q --filter name=db)",
+    "docker:remove": "docker rm $(docker ps -aq --filter name=db)",
+    "docker:rmi": "docker rmi $(docker images -aq  tsp/db)",
+    "docker:dev": "yarn docker:build && yarn docker:run",
+    "docker:detach": "yarn docker:build && yarn docker:run:detached"
+  }
+}
