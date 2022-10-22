@@ -18,9 +18,9 @@ The server however is dependant on the db, if you want only one folder, you can 
 
 ## Running
 
-- `yarn start:init` will build all containers and run them all with docker-compose (I recommend using Kubernetes in production)
-- `yarn start` will run docker-compose to start all containers (if they are build already)
 - `yarn start:dev` will run all individual parts in dev mode locally and watch them for reloads on file change
+- `yarn start` will build all containers and run them all with docker-compose (I recommend using Kubernetes in production)
+- `yarn build` will just build all docker containers
 
 ## Docker
 All parts are containerized using docker, see `yarn docker:*` for the different commands. If you just want to quickly build and run, `yarn docker:dev` is your friend. It will build the image, create a common network and run the container sync. You can run it in detached mode using `docker:detach`.

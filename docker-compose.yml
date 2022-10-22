@@ -10,6 +10,7 @@ services:
       - 27017:27017
     volumes:
       - ./db/bin/db.init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./db/data:/data/db
   server:
     image: tsp/server
     restart: always
