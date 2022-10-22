@@ -4,9 +4,9 @@
   "license": "None",
   "scripts": {
     "prestart:dev": "yarn",
-    "start:dev": "concurrently --names 'DB,WEB-CLIENT,SERVER' 'cd db && yarn && yarn start:dev' 'cd web-client && yarn && yarn start:dev' 'cd server && yarn && yarn start:dev'",
-    "teardown:dev": "concurrently --names 'DB,WEB-CLIENT,SERVER' 'cd db && yarn teardown:dev' 'cd server && yarn teardown:dev'",
-    "build": "cd db && yarn docker:build && cd ../web-client && yarn docker:build && cd ../server && yarn docker:build",
+    "start:dev": "concurrently -c 'bgMagenta,bgCyan,bgYellow' -n 'DB,WEB-CLIENT,SERVER' 'cd db && yarn && yarn start:dev' 'cd web-client && yarn && yarn start:dev' 'cd server && yarn && yarn start:dev'",
+    "teardown:dev": "concurrently -c 'bgMagenta,bgCyan,bgYellow' -n 'DB,WEB-CLIENT,SERVER' 'cd db && yarn teardown:dev' 'cd server && yarn teardown:dev'",
+    "build": "concurrently -c 'bgMagenta,bgCyan,bgYellow' -n 'DB,WEB-CLIENT,SERVER' 'cd db && yarn docker:build' 'cd web-client && yarn docker:build' 'cd server && yarn docker:build'",
     "prestart:init": "yarn build",
     "start:init": "docker-compose up",
     "start": "docker-compose up"
