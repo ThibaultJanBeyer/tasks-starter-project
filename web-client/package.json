@@ -1,5 +1,5 @@
 {
-  "name": "web-client2",
+  "name": "web-client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,18 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "\\** Docker Related Scripts **\\": "\\** Docker Related Scripts **\\",
+    "start:docker": "yarn build && yarn start",
+    "docker:build": "yarn docker:teardown; ./build.sh",
+    "docker:teardown": "docker network rm tsp/network; yarn docker:stop; yarn docker:rmi;",
+    "docker:network": "docker network create tsp/network",
+    "docker:run": "yarn docker:network; docker run -p 3000:3000 --network=tsp/network --name=web-client tsp/web-client",
+    "docker:run:detached": "yarn docker:network; docker run -d -p 3000:3000 --network=tsp/network --name=web-client tsp/web-client",
+    "docker:stop": "docker stop $(docker ps -q --filter ancestor=tsp/web-client)",
+    "docker:rmi": "docker rmi -f $(docker images -aq tsp/web-client)",
+    "docker:dev": "yarn docker:build && yarn docker:run",
+    "docker:detach": "yarn docker:build && yarn docker:run:detached"
   },
   "dependencies": {
     "next": "12.3.1",

@@ -4,12 +4,10 @@ services:
   db:
     image: postgres
     restart: always
+    env_file:
+      ./bin/db.env
     ports:
       - 5432:5432
-    environment:
-      POSTGRES_USER: dev
-      POSTGRES_PASSWORD: dev
-      POSTGRES_DB: dev
     volumes:
       - ./bin/data:/var/lib/postgresql/data
   adminer:
