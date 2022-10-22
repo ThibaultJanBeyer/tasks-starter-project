@@ -25,7 +25,7 @@ The server however is dependant on the db, if you want only one folder, you can 
 ## Docker
 All parts are containerized using docker, see `yarn docker:*` for the different commands. If you just want to quickly build and run, `yarn docker:dev` is your friend. It will build the image, create a common network and run the container sync. You can run it in detached mode using `docker:detach`.
 
-To build all and run all containers you can run `yarn start` on the root of this repository.
+To build all and run all containers you can run `yarn start:init` on the root of this repository.
 
 
 ## Main Branch
